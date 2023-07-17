@@ -12,7 +12,7 @@ void remove_trailing_and_leading_spaces(char *str)
 
 	if (len > 0)
 	{
-		wihle(len > 0 && str[len - 1] == ' ')
+		while (len > 0 && str[len - 1] == ' ')
 			len--;
 		str[len] = '\0';
 	}
@@ -47,7 +47,7 @@ void tokenize(char *command, char *argv[MAX_ARGS])
 		argv[i++] = token;
 		token = _strtok(NULL, " ");
 	}
-	agrv[i] = NULL;
+	argv[i] = NULL;
 }
 
 /**
@@ -96,7 +96,7 @@ int _atoi(const char *str)
 *@ag: input command string
 *Return: exit code
 */
-int _lexit(char *status __attribute__((unused)), int c, char *a, chr **ag)
+int _lexit(char *status __attribute__((unused)), int c, char *a, char **ag)
 {
 	int i = ex_code;
 	int j;
@@ -104,7 +104,7 @@ int _lexit(char *status __attribute__((unused)), int c, char *a, chr **ag)
 	if (status != NULL)
 	{
 		j = 0;
-		while (statuc[j])
+		while (status[j])
 		{
 			if (!(status[j] > 47 && status[j] < 58))
 			{

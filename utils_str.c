@@ -32,7 +32,7 @@ int _strcmp(const char *str1, const char *str2)
 *	otherwise if not equal
 */
 
-int _strncmp(const char *s1, constr char *s2, size_r n)
+int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i = 0;
 
@@ -77,7 +77,7 @@ int _strlen(const char *str)
 *@size: number of characters to be copied
 *Return: size of characters copied
 */
-int _strncpy(char *dest, char src, int size)
+int _strncpy(char *dest, char *src, int size)
 {
 	int i = 0;
 
@@ -99,7 +99,7 @@ int _strncpy(char *dest, char src, int size)
 */
 int _strcpy(char *dest, char *src)
 {
-	int = 0;
+	int i = 0;
 
 	while (src[i] != '\0')
 	{

@@ -26,9 +26,9 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 		cmd = read_command();
 		if (cmd == NULL)
 			exit(ex_code);
-		if (cmd[0] == '\0' || (_strcmp(cmd. "\n") == 0))
+		if (cmd[0] == '\0' || (_strcmp(cmd, "\n") == 0))
 			continue;
-		remwspaces(cmd);
+		rewmspaces(cmd);
 		cmd_copy = strdup(cmd);
 		tokenize(cmd_copy, ar);
 		tokenize(cmd, argv);

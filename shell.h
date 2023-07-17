@@ -26,6 +26,7 @@ struct Node
 
 
 static struct Node *new_node(char *str) UNUSED;
+
 /**
 *new_node - Creates a new node for a linked list
 *@str: String value to be stored in the new node
@@ -42,6 +43,12 @@ static struct Node *new_node(char *str)
 	return (node);
 }
 
+static void add_node(struct Node **head, struct Node *node) UNUSED;
+/**
+*add_node - Adds a node to the end of a linked list
+*@head: Pointer to the head of the linked list
+*@node: Node to be added to the linked list
+*/
 static void add_node(struct Node **head, struct Node *node)
 {
 	if (*head == NULL)
@@ -70,7 +77,7 @@ int _strcmp(const char *str1, const char *str2);
 int _strncmp(const char *s1, const char *s2, size_t n);
 int _strlen(const char *str);
 int _strcpy(char *dest, char *src);
-int _strncpy(char *dest, char src, int size);
+int _strncpy(char *dest, char *src, int size);
 
 void remove_trailing_and_leading_spaces(char *str);
 void tokenize(char *command, char *argv[MAX_ARGS]);
@@ -89,7 +96,7 @@ int _env(void);
 int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
 
-int process_command(char *argv);
+int process_command(char **argv);
 void _perrore(char *err, int count, char *c, char *arg);
 
 char *which(char *command);

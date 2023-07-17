@@ -6,7 +6,7 @@
 *Return: 0 if successful
 *	1 if otherwise
 */
-int process_command(char *argv)
+int process_command(char **argv)
 {
 	int num_arg = num_args(argv);
 
@@ -23,7 +23,7 @@ int process_command(char *argv)
 		_env();
 		return (0);
 	}
-	if (_strcmp(argv[0]."setenv") == 0)
+	if (_strcmp(argv[0], "setenv") == 0)
 	{
 		if (num_arg == 3)
 		{
@@ -35,7 +35,7 @@ int process_command(char *argv)
 	{
 		if (num_arg == 2)
 		{
-			_unsetenv(argv[1];
+			_unsetenv(argv[1]);
 			return (0);
 		}
 	}

@@ -46,6 +46,6 @@ void print_all_aliases(alias_t *aliases)
 {
 	alias_t *alias;
 
-	for (alias = aliases; alias; alias = alias->enxt)
+	for (alias = aliases; alias; alias = alias->next)
 		print_alias(alias);
 }

@@ -1,4 +1,4 @@
-nclude "shell.h"
+#include "shell.h"
 
 /**
 *add_env_var- add a new environmen variable to the linked list
@@ -6,20 +6,20 @@ nclude "shell.h"
 *@name: environment variable name
 *@value: environment variable value
 */
-void add_env_var(struct Nod **head, const char *name, const char *value)
+void add_env_var(struct Node **head, const char *name, const char *value)
 {
 	size_t name_l = _strlen(name);
 	size_t value_len = _strlen(value);
-	char *new_envc_var = malloc(name_l + value_len + 2);
+	char *new_env_var = malloc(name_l + value_len + 2);
 	struct Node *current = *head;
 
 	if (new_env_var == NULL)
 	{
 		return;
 	}
-	_mecpy(new_env_var, (void *)name, name_l);
+	_memcpy(new_env_var, (void *)name, name_l);
 	new_env_var[name_l] = '=';
-	_mecpy(new_env_var + name_l + 1, (void *)value, value_len);
+	_memcpy(new_env_var + name_l + 1, (void *)value, value_len);
 	new_env_var[name_l + value_len + 1] = '\0';
 
 	while (current != NULL)
@@ -58,7 +58,7 @@ void update_environ(struct Node *head)
 		return;
 	}
 	current = head;
-	for (i = 0; i < count; i++;)
+	for (i = 0; i < count; i++)
 	{
 		new_environ[i] = current->str;
 		current = current->next;
