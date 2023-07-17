@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * _strtok - strtok implementation
@@ -11,9 +11,6 @@ char *_strtok(char *str, char const *delim)
 {
 	static char *ptr;
 	int size = 0;
-	char *token;
-
-	int i = 0;
 	char *token;
 	int i = 0;
 
@@ -34,9 +31,8 @@ char *_strtok(char *str, char const *delim)
 		while (ptr[size] != 0)
 			size++;
 		token = ptr;
-		ptr += size; /*update ptr to '\0' */
+		ptr += size; /* update ptr to '\0' */
 		return (token);
 	}
+	return (NULL);
 }
-
-

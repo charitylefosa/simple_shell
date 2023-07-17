@@ -39,12 +39,12 @@ void _exec(char **_argum, char *av, int count)
 		else
 		{
 			cmd1 = _argum[0];
-			if (acces_check(_argum, cmd1, err, count, environ))
+			if (access_check(_argum, cmd1, err, count, environ))
 				return;
 		}
 	}
 	wait(&status);
-	if (WIEXITED(status))
+	if (WIFEXITED(status))
 	{
 		ex_code = (WEXITSTATUS(status));
 	}

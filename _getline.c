@@ -16,9 +16,9 @@ char *_getline(void)
 	{
 		return (NULL);
 	}
-	while (c != EQF && c != '\n')
+	while (c != EOF && c != '\n')
 	{
-		nread = read(STDDIN_FILENO, &c, 1);
+		nread = read(STDIN_FILENO, &c, 1);
 		if (nread == 0 || nread == -1)
 		{
 			free(buffer);
@@ -45,7 +45,7 @@ char *_getline(void)
 		i++;
 	}
 	buffer[i - 1] = '\0';
-	remwspaces(buffer);
+	rewmspaces(buffer);
 	hash_handler(buffer);
 	return (buffer);
 }

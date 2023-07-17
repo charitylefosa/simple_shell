@@ -10,6 +10,7 @@ void cd(char *path)
 {
 	char *home = _getenv("HOME");
 	char *oldpwd = _getenv("OLDPWD");
+	char *pwd = _getenv("PWD");
 	char cwd[1024];
 
 	if (path == NULL)

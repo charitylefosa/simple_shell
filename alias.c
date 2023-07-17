@@ -19,7 +19,7 @@ void init_aliases(alias_t **aliases)
  *
  * Return: 0 upon success
  */
-int alias_command(char *argv[MAX_ARGS], int num_arg__attribute__((unused)))
+int alias_command(char *argv[MAX_ARGS], int num_arg __attribute__((unused)))
 {
 	static alias_t *aliases;
 	static int initialized;
@@ -39,13 +39,13 @@ int alias_command(char *argv[MAX_ARGS], int num_arg__attribute__((unused)))
 	if (num_arg == 1)
 	{
 		for (alias = aliases; alias; alias = alias->next)
-			print_alias(alia);
+			print_alias(alias);
 		return (1);
 	}
 	for (i = 1; i < num_arg; i++)
 	{
 		name = argv[i];
-		value = _strchr(argv[i], '=');
+		value = _strcat(argv[i], "-");
 		if (value)
 		{
 			*value = '\0';/*replaces '=' by '\0'*/
@@ -93,7 +93,7 @@ void set_alias(alias_t **aliases, char *name, char *value)
 		alias->next = *aliases;
 		*aliases = alias;
 	}
-	dfree(alias);
+	free(alias);
 }
 
 /**
