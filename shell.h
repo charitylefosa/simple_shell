@@ -26,7 +26,6 @@ struct Node
 
 static struct Node *new_node(char *str) UNUSED;
 
-
 struct void add_node(struct Node **head, struct Node *node)
 {
 	if (*head == NULL)
@@ -90,5 +89,30 @@ void handle_segfault(int signo __attribute__((unused)))
 
 void add_env_var(struct Nod **head, const char *name, const char *value)
 void update_environ(struct Node *head)
+
+void _exec(char **_argum, char *av, int count)
+void _execve(char *c, char **p, char **r)
+void _perror(char *err, int count, char *c)
+void _print(char *s)
+void _pnumber(int n)
+
+char *_getenv(char *str)
+
+char *_getline(void)
+void hash_handler(char *buff)
+
+int _putchar(char c)
+
+char *_strtok(char *str, char const *delim)
+
+void init_aliases(alias_t **aliases)
+int alias_command(char *argv[MAX_ARGS], int num_arg__attribute__((unused)))
+void set_alias(alias_t **aliases, char *name, char *value)
+void print_alias(alias_t *alias)
+
+int access_check(char **arg, char *cmd, char *err, int c, char **e)
+int _putchar(char c)
+
+void cd(char *path)
 
 #endif	
