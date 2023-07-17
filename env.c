@@ -43,7 +43,7 @@ int _env(void)
 
 	for (env = environ; *env != NULL; env++)
 	{
-		add_note(&head, new_node(*env));
+		add_node(&head, new_node(*env));
 	}
 	print_list(head);
 	free_list(head);
@@ -81,7 +81,7 @@ int _unsetenv(const char *name)
 {
 	char **e;
 	char **env;
-	size_ len = _strlen(name);
+	size_t len = _strlen(name);
 
 	for (env = environ; *env != NULL; env++)
 	{
