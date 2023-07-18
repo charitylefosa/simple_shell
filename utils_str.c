@@ -92,7 +92,7 @@ int _strncpy(char *dest, char *src, int size)
 
 
 /**
-*_strcpy = string copy of n limit
+*_strcpy - string copy of n limit
 *@dest: destination
 *@src: source string
 *Return: size of characters copied
