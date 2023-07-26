@@ -1,9 +1,9 @@
 #include <string.h>
 #include "shell.h"
 
-void handle_segfault(int signo __attribute__((unused)));
+void handle_segmfault(int signo __attribute__((unused)));
 
-int ex_code = 0;
+int ex_code = 0; /* initializes exit code value with 0*/
 
 /**
 *main - entry point of the program
@@ -18,7 +18,7 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 	char *__attribute__ ((unused)) cmd1, *cmd_copy = NULL;
 
 	int __attribute__((unused)) num_arg, r, count = 0;
-	signal(SIGSEGV, handle_segfault);
+	signal(SIGSEGV, handle_segmfault);
 	do {
 		count++;
 		if (isatty(STDIN_FILENO))
@@ -40,14 +40,14 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 		}
 		if (_strcmp(argv[0], "exit") == 0)
 		{
-			r = _lexit(ar[1], count, av[0], argv);
+			r = code_exit(ar[1], count, av[0], argv);
 			free(cmd);
 			free(cmd_copy);
 			if (r == 500)
 				continue;
 			exit(r);
 		}
-		if (process_command(argv) == 0)
+		if (process_cmd(argv) == 0)
 		{
 		}
 		else

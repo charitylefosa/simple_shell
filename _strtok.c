@@ -11,7 +11,7 @@ char *_strtok(char *str, char const *delim)
 {
 	static char *ptr;
 	int size = 0;
-	char *token;
+	char *tok;
 	int i = 0;
 
 	if (str != NULL)
@@ -20,9 +20,9 @@ char *_strtok(char *str, char const *delim)
 		if (ptr[i]  == *delim)
 		{
 			ptr[i] = '\0';
-			token = ptr;
+			tok = ptr;
 			ptr = &ptr[i + 1];
-			return (token);
+			return (tok);
 		}
 		else
 			i++;
@@ -30,9 +30,9 @@ char *_strtok(char *str, char const *delim)
 	{
 		while (ptr[size] != 0)
 			size++;
-		token = ptr;
+		tok = ptr;
 		ptr += size; /* update ptr to '\0' */
-		return (token);
+		return (tok);
 	}
 	return (NULL);
 }

@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-*remove_trailing_and_leading_spaces- remove trailing spaces from a string
+*rem_spaces- remove trailing spaces from a string
 *@str: string to remove from
 */
-void remove_trailing_and_leading_spaces(char *str)
+void rem_spaces(char *str)
 {
 	size_t len = _strlen(str);
 	size_t start = 0;
@@ -38,14 +38,14 @@ void remove_trailing_and_leading_spaces(char *str)
 */
 void tokenize(char *command, char *argv[MAX_ARGS])
 {
-	char *token;
+	char *tok;
 	int i = 0;
 
-	token = _strtok(command, " ");
-	while (token != NULL)
+	tok = _strtok(command, " ");
+	while (tok != NULL)
 	{
-		argv[i++] = token;
-		token = _strtok(NULL, " ");
+		argv[i++] = tok;
+		tok = _strtok(NULL, " ");
 	}
 	argv[i] = NULL;
 }
@@ -89,14 +89,14 @@ int _atoi(const char *str)
 
 
 /**
-*_lexit - exit with a status code
+*code_exit - exit with a status code
 *@status: status code to exit with
 *@c: command count
 *@a: shell name
 *@ag: input command string
 *Return: exit code
 */
-int _lexit(char *status __attribute__((unused)), int c, char *a, char **ag)
+int code_exit(char *status __attribute__((unused)), int c, char *a, char **ag)
 {
 	int i = ex_code;
 	int j;

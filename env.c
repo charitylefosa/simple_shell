@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
-*print_list- print contents of the listed list
-*@head: head of linked list
+*print_list- print contents of the linked list
+*@head: linked list head
 */
 void print_list(struct Node *head)
 {
@@ -17,7 +17,7 @@ void print_list(struct Node *head)
 
 /**
 *free_list- free up memory allocated for each node inthe linked list
-*@head: head of linked list
+*@head: linked list head
 */
 void free_list(struct Node *head)
 {

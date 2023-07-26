@@ -79,9 +79,9 @@ int _strlen(const char *str);
 int _strcpy(char *dest, char *src);
 int _strncpy(char *dest, char *src, int size);
 
-void remove_trailing_and_leading_spaces(char *str);
+void rem_spaces(char *str);
 void tokenize(char *command, char *argv[MAX_ARGS]);
-int _lexit(char *status __attribute__((unused)), int c, char *a, char **ag);
+int code_exit(char *status __attribute__((unused)), int c, char *a, char **ag);
 int _atoi(const char *str);
 int num_args(char *argv[]);
 
@@ -96,10 +96,10 @@ int _env(void);
 int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
 
-int process_command(char **argv);
+int process_cmd(char **argv);
 void _perrore(char *err, int count, char *c, char *arg);
 
-char *which(char *command);
+char *which_func(char *command);
 void print_all_aliases(alias_t *aliases);
 
 int main(int ac __attribute__((unused)), char **av __attribute__((unused)));
@@ -108,7 +108,7 @@ void rewmspaces(char *s);
 char *read_command(void);
 void handle_sigint(int signo __attribute__((unused)));
 
-void handle_segfault(int signo __attribute__((unused)));
+void handle_segmfault(int signo __attribute__((unused)));
 
 void add_env_var(struct Node **head, const char *name, const char *value);
 void update_environ(struct Node *head);

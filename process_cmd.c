@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
-*process_command- process the command and execute the corresponding actions
+*process_cmd- process the command and execute the corresponding actions
 *@argv: array of strings where argv[0] is the command*
 *Return: 0 if successful
 *	1 if otherwise
 */
-int process_command(char **argv)
+int process_cmd(char **argv)
 {
 	int num_arg = num_args(argv);
 

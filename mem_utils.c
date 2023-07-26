@@ -22,14 +22,14 @@ void *_memcpy(void *dest, void *src, size_t n)
 }
 
 /**
-*_realloc- change memory size block pointed to by ptr to size bytes.
+*_realloc- change memory block pointed size to by ptr to size bytes.
 *@ptr: old pointer
 *@size: new size
 *Return: new pointer
 */
 void *_realloc(void *ptr, size_t size)
 {
-	void *new_ptr;
+	void *n_ptr;
 
 	if (ptr == NULL)
 		return (malloc(size));
@@ -38,12 +38,12 @@ void *_realloc(void *ptr, size_t size)
 		free(ptr);
 		return (NULL);
 	}
-	new_ptr = malloc(size);
-	if (new_ptr == NULL)
+	n_ptr = malloc(size);
+	if (n_ptr == NULL)
 		return (NULL);
-	_memcpy(new_ptr, ptr, size);
+	_memcpy(n_ptr, ptr, size);
 	free(ptr);
-	return (new_ptr);
+	return (n_ptr);
 }
 
 
@@ -55,12 +55,12 @@ void *_realloc(void *ptr, size_t size)
 char *_strdup(char *s)
 {
 	size_t len = _strlen(s) + 1;
-	char *new_str = malloc(len);
+	char *n_str = malloc(len);
 
-	if (new_str == NULL)
+	if (n_str == NULL)
 		return (NULL);
-	_memcpy(new_str, s, len);
-		return (new_str);
+	_memcpy(n_str, s, len);
+		return (n_str);
 }
 
 
@@ -90,7 +90,7 @@ char *_strcat(char *dest, const char *src)
 
 
 /**
-*_strchr- locate character in a string
+*_strchr- locate character in string
 *@str: string to be searched
 *@character: character to search
 *Return: pointer to the string

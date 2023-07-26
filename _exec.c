@@ -25,7 +25,7 @@ void _exec(char **_argum, char *av, int count)
 	{
 		if (_argum[0][0] != '.')
 		{
-			cmd1 = which(_argum[0]);
+			cmd1 = which_func(_argum[0]);
 			if (cmd1 == NULL)
 			{
 

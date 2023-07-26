@@ -8,23 +8,23 @@
 */
 void add_env_var(struct Node **head, const char *name, const char *value)
 {
-	size_t name_l = _strlen(name);
-	size_t value_len = _strlen(value);
-	char *new_env_var = malloc(name_l + value_len + 2);
+	size_t n_len = _strlen(name);
+	size_t v_len = _strlen(value);
+	char *new_env_var = malloc(n_len + v_len + 2);
 	struct Node *current = *head;
 
 	if (new_env_var == NULL)
 	{
 		return;
 	}
-	_memcpy(new_env_var, (void *)name, name_l);
-	new_env_var[name_l] = '=';
-	_memcpy(new_env_var + name_l + 1, (void *)value, value_len);
-	new_env_var[name_l + value_len + 1] = '\0';
+	_memcpy(new_env_var, (void *)name, n_len);
+	new_env_var[n_len] = '=';
+	_memcpy(new_env_var + n_len + 1, (void *)value, v_len);
+	new_env_var[n_len + v_len + 1] = '\0';
 
 	while (current != NULL)
 	{
-		if (_strncmp(current->str, name, name_l) == 0 && current->str[name_l] == '=')
+		if (_strncmp(current->str, name, n_len) == 0 && current->str[n_len] == '=')
 		{
 			free(current->str);
 			current->str = new_env_var;
